@@ -1,12 +1,16 @@
+import os
+from dotenv import load_dotenv
 import psycopg2
 import psycopg2.extras
+
+load_dotenv()
 
 DB_CONFIG = {
     "host": "localhost",
     "port": 5432,
     "dbname": "inventory_db",
     "user": "postgres",
-    "password": "sathvik@2"  # replace with your actual password
+    "password": os.getenv("DB_PASSWORD")
 }
 
 def get_connection():
